@@ -44,8 +44,8 @@ def create_table():
     db.execute('''
         CREATE TABLE IF NOT EXISTS mensagens (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            usuario_id INTEGER NOT NULL,
-            mensagem TEXT NOT NULL,
+            usuario_id INTEGER NOT NULL UNIQUE,
+            mensagem TEXT NOT NULL UNIQUE,
             timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (usuario_id) REFERENCES usuario (id)
         );
